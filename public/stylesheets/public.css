@@ -1,0 +1,290 @@
+html, body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #444251;
+    background-image: url("pattern.png");
+}
+body {
+    display: flex;
+}
+#mainContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#resultsContainer {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    justify-content: space-around;
+}
+#resultCard {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    border-radius: 17.5px;
+    width: 375px;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    min-width: 400px;
+}
+#resultCard p {
+    font-size: 15px;
+    padding: 0 25px;
+}
+#resultCard img {
+    max-width: 250px;
+    margin: 25px;
+}
+#resultFooter {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 5px;
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#resultCard h1, #resultFooter h2 {
+    font-weight: 500;
+    margin: 0px;
+    text-decoration: none;
+}
+#resultCard h1 {
+    font-size: 45px;
+}
+#resInfo {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color:white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 0 22px;
+    border-radius: 17.5px;
+    margin: 0 auto;
+    padding-top: 75px;
+    margin-bottom: 50px;
+}
+.tF {
+    height: 15px;
+    border-radius: 40px;
+    display: flex;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    padding-left: 20px;
+    height: 55px;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: #444251;
+    width: 80%;
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+}
+.incDecBoxField {
+    height: 15px;
+    border-radius: 40px;
+    display: flex;
+    background-color: #F5F5F5;
+    border-radius: 40px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    color: #444251;
+    width: 80%;
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    height: 55px;
+    padding-left: 20px;
+}
+.incDecTF {
+    width: 85%;
+    height: 100%;
+    border-radius: 40px;
+    background-color: #F5F5F5;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    z-index: 2;
+}
+
+.addItemBtn, .removeItemBtn {
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    color: #444251;
+    background-color: white;
+    width: 55px;
+    height: 100%;
+    text-align: center;
+    margin-left: 15px;
+    transition: 0.3s;
+    margin: 0;
+    position: relative;
+    z-index: 0;
+}
+.removeItemBtn {
+    border-radius: 0 50px 50px 0;
+}
+.addItemBtn:hover, .removeItemBtn:hover {
+    background-color: #444251;
+    color: white;
+}
+.addItemBtn i, .removeItemBtn i {
+    align-self: center;
+    width: 100%;
+}
+.dropDownMenu {
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    border-radius: 17.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 5px;
+    min-width: 200px;
+    margin-top: 35px;
+    transition: 0.3s;
+    position: absolute;
+    padding: 0;
+    overflow: hidden;
+    z-index: 10;
+}
+.op-0 {
+    opacity: 0;
+}
+.dropDownMenu a {
+    font-size: 17px;
+    margin: 0;
+    padding: 15px 10px;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+}
+.dropDownMenu a:hover {
+    background-color: #444251;
+    color: white;
+}
+.dropDownBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    margin: 0;
+}
+.dropDownMenu button {
+    font-size: 17px;
+    margin: 0;
+    padding: 17px 10px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    border: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.dropDownMenu button:hover {
+    background-color: #444251;
+    color: white;
+}
+.RegBtn {
+    padding: 15px;
+    background-color: #444251;
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    width: 120px;
+    align-self: center;
+    text-align: center;
+    outline: none;
+    border: none;
+    margin: 15px auto;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+.RegBtn:hover {
+    background-color: white;
+    color: #444251;;
+}
+#abtField{
+    height: 200px;
+    padding-top: 25px;
+    resize: none;
+    font-family: 'Open Sans', sans-serif;
+}
+textarea::-webkit-scrollbar, body::-webkit-scrollbar {
+    background-color: transparent;
+}
+textarea::-webkit-scrollbar-track-piece, body::-webkit-scrollbar-track-piece {
+    background-color: rgba(0,0,0,0.16);
+}
+textarea::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.25);
+    border-radius: 89px;
+}
+.uploadMask {
+    width: 572px;
+    margin-left: auto;
+    padding: 25px 25px 10px 25px;
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    border-radius: 40px;
+    color: gray;
+}
+.filepond--panel-root {
+    background-color: #fff;
+}
+@media (max-width: 1160px) {
+    #mainContainer {
+        width: 95%;
+    }
+    #topBox {
+        width: 100%;
+    }
+    #resInfo {
+        width: 100%;
+    }
+    #resultsContainer {
+        width: 100%;
+    }
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .tF, .incDecBoxField, .uploadMask, .btns-box  {
+        width: 90%;
+        margin-left: 0;
+        margin-top: 25px;
+    }
+    h3 {
+        font-size: 22.5px;
+        margin: 0;
+        margin-top: 0;
+    }
+}
+@media (max-width: 1500px) {
+    #mainContainer {
+        width: 95%;
+    }
+    #topBox {
+        width: 100%;
+    }
+    #resInfo {
+        width: 100%;
+    }
+    #resultsContainer {
+        width: 100%;
+    }
+}

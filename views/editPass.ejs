@@ -1,0 +1,15 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" type="text/css" href="/userForm.css">
+<link rel="stylesheet" type="text/css" href="/editPass.css">
+<div id="mainContainer"  data-aos="fade-up">
+    <h2 class="title">Edit Account</h2>
+    <form id="loginField" action="/dashboard/<%=account._id%>/editPass" method="POST">
+        <input type="text" name="username" placeholder="New Username" class="tF" value="<%=account.username%>" required>
+        <input type="password" name="password" placeholder="New Password" minlength="6" class="tF" value="" required>
+        <div class="btns-container">
+            <a href="/dashboard/<%=account.restId%>/edit" class="btn" style="width: 90px;">Cancel</a>
+            <input type="submit" class="btn" value="Save">
+        </div>
+    </form>
+</div>
+<%- include("partials/footer") %>

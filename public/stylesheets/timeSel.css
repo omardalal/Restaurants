@@ -1,0 +1,34 @@
+.timeTf button {
+    padding: 10px 5px;
+}
+#clTimeMenu, #opTimeMenu, #opAmMenu, #clAmMenu {
+    min-width: 100px;
+}
+#opAmMenu button, #clAmMenu button {
+    font-size: 18px;
+}
+.incDecBoxField {
+    overflow: hidden;
+}
+.timeTf {
+    height: 15px;
+    border-radius: 40px;
+    display: flex;
+    background-color: #F5F5F5;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    color: #444251;
+    width: 80%;
+    margin-left: auto;
+    height: 55px;
+}
+.time-box {
+    display:flex;
+    padding-left: 30px;
+    margin-left: auto;
+}
+@media (max-width: 1160px) {
+    .time-box{
+        margin-left: 0;
+        padding-left: 0;
+    }
+}

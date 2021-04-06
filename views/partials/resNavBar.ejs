@@ -1,0 +1,33 @@
+<div id="topBox">
+    <a class="logo" href="/">Feed<span>Me</span></a>
+    <form id="searchField" action="/results" method="POST">
+        <input type="text" name="resName" placeholder="Look for a Restaurant">
+        <input type="submit" value="">
+    </form>
+    <div id="btnsBox">
+        <div class="dropDownBox" style="margin: 20px 12.5px 0 12.5px;">
+            <a href="#" class="btn" id="cityBtn">By City  <i class="fas fa-angle-down" id="cityMenuCaret"></i></a>
+            <form class="dropDownMenu d-none" id="cityMenu" action="/search/city/" method="GET">
+                <button formaction="/search/city/Ramallah" type="submit">Ramallah</button>
+                <button formaction="/search/city/Bethlehem" type="submit">Bethlehem</button>
+                <button formaction="/search/city/Hebron" type="submit">Hebron</button>
+                <button formaction="/search/city/Nablus" type="submit">Nablus</button>
+                <button formaction="/search/city/Jericho" type="submit">Jericho</button>
+                <button formaction="/search/city/Qalqilyah" type="submit">Qalqilyah</button>
+                <button formaction="/search/city/Tulkarm" type="submit">Tulkarm</button>
+                <button formaction="/search/city/Jenin" type="submit">Jenin</button>
+            </form>
+        </div>
+        <div class="dropDownBox" style="margin: 20px 12.5px 0 12.5px;">
+            <a href="#" class="btn" id="categoryBtn">By Category  <i class="fas fa-angle-down" id="categoryMenuCaret"></i></a>
+            <form class="dropDownMenu d-none" id="categoryMenu" action="/search/categorty/" method="GET">
+                <button formaction="/search/category/Pizza" type="submit">Pizza</button>
+                <button formaction="/search/category/Chicken" type="submit">Chicken</button>
+                <button formaction="/search/category/Burger" type="submit">Burger</button>
+                <button formaction="/search/category/Italian" type="submit">Italian</button>
+                <button formaction="/search/category/Mexican" type="submit">Mexican</button>
+                <button formaction="/search/category/Chinese" type="submit">Chinese</button>
+            </form>
+        </div>
+    </div>
+</div>

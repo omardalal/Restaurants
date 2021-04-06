@@ -1,0 +1,41 @@
+<%- include ("partials/header") %>
+<link rel="stylesheet" type="text/css" href="/home.css">
+<div id="mainContainer"  data-aos="fade-up">
+    <h2 class="logo">Feed<span>Me</span> </h2>
+    <form id="searchField" action="/results" method="POST">
+        <input type="text" name="resName" placeholder="Look for a Restaurant">
+        <input type="submit" value="">
+    </form>
+    <div id="btnsContainer">
+        <div class="dropDownBox">
+             <a href="#" class="btn" id="cityBtn">By City <i class="fas fa-caret-down" id="cityDown"></i></a>
+             <form class="dropDownMenu d-none" id="cityMenu" action="/search/city/name" method="GET">
+                <button formaction="/search/city/Ramallah" type="submit">Ramallah</button>
+                <button formaction="/search/city/Bethlehem" type="submit">Bethlehem</button>
+                <button formaction="/search/city/Hebron" type="submit">Hebron</button>
+                <button formaction="/search/city/Nablus" type="submit">Nablus</button>
+                <button formaction="/search/city/Jericho" type="submit">Jericho</button>
+                <button formaction="/search/city/Qalqilyah" type="submit">Qalqilyah</button>
+                <button formaction="/search/city/Tulkarm" type="submit">Tulkarm</button>
+                <button formaction="/search/city/Jenin" type="submit">Jenin</button>
+            </form>
+         </div>
+         <div class="dropDownBox">
+            <a href="#" class="btn" id="categoryBtn">By Category <i class="fas fa-caret-down" id="catDown"></i></a>
+            <form class="dropDownMenu d-none" id="categoryMenu" action="/search/category/name" method="GET">
+                <button formaction="/search/category/Pizza" type="submit">Pizza</button>
+                <button formaction="/search/category/Chicken" type="submit">Chicken</button>
+                <button formaction="/search/category/Burger" type="submit">Burger</button>
+                <button formaction="/search/category/Italian" type="submit">Italian</button>
+                <button formaction="/search/category/Mexican" type="submit">Mexican</button>
+                <button formaction="/search/category/Chinese" type="submit">Chinese</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dropDown.js"></script>
+<script type="text/javascript">
+    addDropDown("cityBtn", "cityMenu", "cityDown");
+    addDropDown("categoryBtn", "categoryMenu", "catDown");
+</script>
+<%- include("partials/footer") %>

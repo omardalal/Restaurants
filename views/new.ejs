@@ -1,0 +1,102 @@
+<%- include("partials/header") %>
+
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="/new.css">
+<link rel="stylesheet" type="text/css" href="/public.css">
+<link rel="stylesheet" type="text/css" href="/navBar.css">
+<link rel="stylesheet" type="text/css" href="/timeSel.css">
+
+<div id="mainContainer">
+    <%- include("partials/dashNavBar") %>
+    <div id="resInfo"  data-aos="fade-up">
+        <form action="/dashboard/new" method="POST">
+            <div class="row">
+                <h3>Name</h3>
+                <input type="text" name="name" placeholder="Name" class="tF" required>
+            </div>
+            <div class="row">
+                <h3>About</h3>
+                <textarea type="text" name="about" placeholder="About" class="tF" id="abtField" rows="10" required></textarea>
+            </div>
+            <div class="row">
+                <h3>Number</h3>
+                <input type="text" name="number" placeholder="Number" minlength="9" maxlength="10" class="tF" required>
+            </div>
+            <div class="row">
+                <h3>Categories</h3>
+                <div class="incDecBoxField">
+                    <input type="text" name="categories" placeholder="Categories seperated by ," class="incDecTF" id="categoryTF" value="" required readonly>
+                    <%- include("partials/catDropDownBox") %>
+                </div>
+            </div>
+            <div class="row" style="z-index: 2;">
+                <h3>Cities</h3>
+                <div class="incDecBoxField" style="z-index: 2;">
+                    <input type="text" name="cities" placeholder="Cities seperated by ," class="incDecTF" id="cityTf" value="" required readonly>
+                    <%- include("partials/cityDropDownBox") %>
+                </div>
+            </div>
+            <div id="branches">
+            </div>
+            <div class="row">
+                <h3>Work Hours</h3>
+                <div class="time-box" style="z-index: 1;">
+                    <div class="incDecBoxField timeTf" style="border-radius: 40px 0 0 40px;">
+                        <input type="text" name="opTime" placeholder="From" class="incDecTF" id="opTF" value="" required readonly>
+                        <%- include("partials/opDropDownBox") %>
+                    </div>
+                    <div class="incDecBoxField timeTf" style="border-radius: 0 40px 40px 0;">
+                        <input type="text" name="clTime" placeholder="To" class="incDecTF" id="clTF" value="" required readonly>
+                        <%- include("partials/clDropDownBox") %>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="z-index: 0; position: relative;">
+                <h3>Logo</h3>
+                <div class="uploadMask" id="logoUploadMask"><input type="file" name="logo" required></div>
+            </div>
+            <div class="row" style="z-index: 0; position: relative;">
+                <h3>Menu</h3>
+                <div class="uploadMask" id="menuUploadMask"><input type="file" name="menu" multiple required></div>
+            </div>
+            <div class="row">
+                <h3>Username</h3>
+                <input type="text" name="username" placeholder="Username" class="tF" required>
+            </div>
+            <div class="row">
+                <h3>Password</h3>
+                <input type="password" name="password" placeholder="Password" minlength="6" class="tF" required>
+            </div>
+            <div class="row">
+                <input type="submit" value="Add" class="RegBtn">
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="/dropDown.js"></script>
+<script type="text/javascript" src="/editNew.js"></script>
+
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script src="/filePondIdent.js"></script>
+<script>
+    var inp = document.querySelector('input[name="number"]');
+    inp.addEventListener('input', function () {
+        if (this.value!=null&&this.value.trim()!='') {
+            if (this.value.length>=2) {
+                if (this.value[0]=='0' && this.value[1]=='2') {
+                    this.setAttribute('maxlength', '9');
+                } else {
+                    this.setAttribute('maxlength', '10');
+                }
+            }
+        }
+    });
+</script>
+<%- include("partials/footer") %>

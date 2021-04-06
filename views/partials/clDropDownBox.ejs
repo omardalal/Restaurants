@@ -1,0 +1,15 @@
+<div class="dropDownBox">   
+    <a id="clTimeBtn" class="addItemBtn"><i class="fas fa-clock" id="clTimeIcon"></i></a>
+    <div class="dropDownMenu d-none" id="clTimeMenu" style="margin-top: 60px;">
+        <% for (var i=1; i<=12; i++) { %>
+            <button type="button" class="clHrBtn"><%=i%></button>
+        <%}%>
+    </div>
+</div>
+<div class="dropDownBox">   
+    <a id="clAmBtn" class="addItemBtn"><i class="fas fa-caret-down" id="clAmIcon"></i></a>
+    <div class="dropDownMenu d-none" id="clAmMenu" style="margin-top: 60px;">
+        <button type="button" onclick="editTimeAP('clTF', 'AM')">AM</button>
+        <button type="button" onclick="editTimeAP('clTF', 'PM')">PM</button>
+    </div>
+</div>

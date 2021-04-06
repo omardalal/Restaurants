@@ -1,0 +1,142 @@
+html, body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #444251;
+    background-image: url("pattern.png");
+}
+body {
+    display: flex;
+}
+#searchField:focus-within {
+    border: 2px solid #444251;
+    transition: 0.1s;
+}
+#mainContainer {
+    margin: auto;
+    width: 600px;
+    height: 400px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    text-align: center;
+    border-radius: 17.5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.logo {
+    font-size: 73.5px;
+    font-weight: 300;
+    margin: 0;
+    margin-top: 65px;
+    color: #444251;
+}
+.logo span {
+    font-weight: 500;
+}
+#searchField {
+    margin-top: 38px;
+    align-self: center;
+    width: 75%; 
+    height: 22px;
+    padding: 10px;
+    border-radius: 40px;
+    display: flex;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    padding: 20px;
+}
+#searchField input {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: #444251;
+    width: 100%;
+}
+#searchField input[type="submit"] {
+    width: 26px;
+    height: 26px;
+    margin-left: auto;
+    align-self: center;
+    background-image: url("search.png");
+    background-size: cover;
+    background-color: transparent;
+}
+#btnsContainer {
+    margin-top: 30px;
+    display: flex;
+    align-self: center;
+}
+.btn {
+    padding: 15px;
+    background-color: #444251;
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 18.5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    width: 130px;
+    transition: 0.3s;
+}
+.btn:hover {
+    background-color: white;
+    color: #444251;
+}
+.dropDownMenu {
+    background-color: #444251;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    border-radius: 17.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 5px;
+    width: 200px;
+    margin-top: 10px;
+    transition: 0.3s;
+    padding: 0;
+    overflow: hidden;
+}
+.op-0 {
+    opacity: 0;
+}
+.dropDownMenu button {
+    font-size: 17px;
+    margin: 0;
+    padding: 15px 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    transition: 0.2s;
+    border: none;
+    background-color: #444251;
+}
+.dropDownMenu button:hover {
+    background-color: white;
+    color: #444251;
+}
+.dropDownBox {
+    margin: 0 12.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    margin-top: 20px;
+}
+.d-none {
+    opacity: 0;
+    display: none;
+}
+a {
+    text-decoration: none;
+}
+body::-webkit-scrollbar {
+    background-color: transparent;
+}
+body::-webkit-scrollbar-track-piece {
+    background-color: rgba(0,0,0,0.16);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.25);
+    border-radius: 89px;
+}

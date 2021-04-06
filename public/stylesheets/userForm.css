@@ -1,0 +1,79 @@
+html, body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #444251;
+    background-image: url("pattern.png");
+}
+body {
+    overflow: hidden;
+    display: flex;
+}
+.op-0 {
+    opacity: 0;
+}
+#mainContainer {
+    margin: auto;
+    width: 600px;
+    height: 400px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    text-align: center;
+    border-radius: 17.5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    font-size: 55px;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 65px;
+    color: #444251;
+    margin-bottom: 25px;
+}
+#loginField {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+}
+.tF:focus-within {
+    border: 2px solid #444251;
+    transition: 0.1s;
+}
+.btn {
+    padding: 15px;
+    background-color: #444251;
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 18.5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    width: 120px;
+    align-self: center;
+    text-align: center;
+    outline: none;
+    border: none;
+}
+.btn:hover {
+    background-color: white;
+    color: #444251;
+}
+.tF {
+    align-self: center;
+    height: 17.5px;
+    padding: 10px;
+    border-radius: 40px;
+    display: flex;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    padding: 15px;
+    font-size: 18.5px;
+    border: none;
+    outline: none;
+    color: #444251;
+    width: 90%;
+    margin-bottom: 25px;
+}

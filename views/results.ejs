@@ -1,0 +1,80 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" type="text/css" href="/results.css">
+<link rel="stylesheet" type="text/css" href="/public.css">
+<link rel="stylesheet" type="text/css" href="/navBar.css">
+
+<div id="mainContainer">
+    <%- include("partials/resNavBar") %>
+    <% function isOpen(opTime, clTime) {
+        var curHr = Number(Date().substring(16,18));
+        var open = false;
+        if ((opTime>=0&&opTime<=11) && (clTime>=12&&clTime<=23)) { //am-pm
+            if ((curHr > opTime) && (curHr < clTime)) {
+                open = true;
+            }
+        } else if ((opTime>=0&&opTime<=11) && (clTime>=0&&clTime<=11)) { //am-am
+            if ((curHr > opTime) && (curHr < clTime)) {
+                open = true;
+            }
+        } else if ((opTime>=12&&opTime<=23) && (clTime>=12&&clTime<=23)) { //pm-pm
+            if ((curHr > opTime) && (curHr < clTime)) {
+                open = true;
+            }
+        } else if ((opTime>=12&&opTime<=23) && (clTime>=0&&clTime<=11)) { //pm-am
+            if ((curHr > opTime) || (curHr < clTime)) {
+                open = true;
+            }
+        }
+        return open;
+    } %>
+    <div id="resultsContainer">
+        <% if (rests.length>0) { 
+                for (var i=0; i<rests.length; i++) { %>
+                <div id="resultCard" data-aos="fade-up">
+                    <img src="data:<%=rests[i].logo.imageType%>;base64,<%=rests[i].logo.data.toString('base64')%>">
+                    <h1><%=rests[i].name.toUpperCase()%> </h1>
+                    <% if (isOpen(rests[i].opTime, rests[i].clTime)) { %>
+                        <h3 style="color:green">
+                            Open Now
+                        </h3>
+                    <%} else {%>
+                        <h3 style="color:red">
+                            Closed Now
+                        </h3>
+                    <%}%>
+                    <p>
+                        <%=rests[i].about.substring(0,150)+"..."%>
+                    </p>
+                    <div id="resultFooter">
+                        <% 
+                            var formattedNumber='';
+                            if (rests[i].number[0]=='0' && rests[i].number[1]=='2') {
+                                const p1 = rests[i].number.substring(0,2);
+                                const p2 = rests[i].number.substring(2,5);
+                                const p3 = rests[i].number.substring(5,9);
+                                formattedNumber = p1+'-'+p2+'-'+p3;
+                            } else {
+                                const p1 = rests[i].number.substring(0,4);
+                                const p2 = rests[i].number.substring(4,7);
+                                const p3 = rests[i].number.substring(7,10);
+                                formattedNumber = p1+'-'+p2+'-'+p3;
+                            }
+                        %>
+                        <h2><%=formattedNumber%></h2>
+                        <a href="/results/<%=rests[i]._id%>"> See More </a>
+                    </div>
+                </div>
+            <%  }
+        } else { %>
+            <div id="resultCard">
+                 <img src="/frown.png" style="width: 200px;">
+                <p style="font-size: 25px; font-weight: 700; color: #444251;">
+                    No Restaurants Found
+                </p>
+            </div>
+        <%}%>
+    </div>
+</div>
+<script type="text/javascript" src="/dropDown.js"></script>
+<script type="text/javascript" src="/resNavBar.js"></script>
+<%- include("partials/footer") %>

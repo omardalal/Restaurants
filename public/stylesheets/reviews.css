@@ -1,0 +1,99 @@
+.review-div {
+    display: flex;
+    flex-direction: column;
+    color: #444251;
+    background-color: #fff;
+    border-radius: 100px;
+    width: 400px;
+    height: 400px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    align-items: center;
+    padding: 25px;
+    margin: 0 25px;
+    margin-bottom: 40px;
+}
+.review-stars i {
+    margin-left: 2.5px;
+    font-size: 25px;
+}
+.review-stars {
+    color: #444251;
+    margin: 25px 25px 25px auto;
+}
+.review-div form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.review-div input[type="text"] , .review-div textarea{
+    background-color: white;
+    margin: 0 15px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 0 22px;
+    color: #444251;
+}
+.review-div input[type="text"]:focus-within , .review-div textarea:focus-within {
+    outline: none;
+}
+.review-div input[type="text"] {
+    padding: 25px;
+    height: 10px;
+    font-size: 19px;
+    border-radius: 25px;
+}
+.review-div textarea {
+    border-radius: 50px;
+    margin-top: 12.5px;
+    padding: 25px;
+    height: 125px;
+    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+    resize: none;
+}
+.review-div input[type="submit"] {
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 25px;
+    color: #fff;
+    background-color: #444251;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px;
+    border: none;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    border-radius: 20px;
+    outline: none;
+    transition: 0.3s;
+    width: 110px;
+    align-self: center;
+}
+.review-div input[type="submit"]:hover {
+    color: #444251;
+    background-color: white;
+}
+.review-div h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #444251;
+    align-self: flex-start;
+}
+.review-div p {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #444251;
+    align-self: flex-start;
+}
+.review-div label {
+    color: #444251;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: 25px;
+    margin-top: 15px;
+}
+.reviews-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}

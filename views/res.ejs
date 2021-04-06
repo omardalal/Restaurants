@@ -1,0 +1,182 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" type="text/css" href="/public.css">
+<link rel="stylesheet" type="text/css" href="/navBar.css">
+<link rel="stylesheet" type="text/css" href="/reviews.css">
+<link rel="stylesheet" type="text/css" href="/res.css">
+
+<div class="display-img-bg d-none">
+    <div id="dImgDiv">
+        <img src="/frown.png" id="displayImg">
+    </div>
+</div>
+
+<div id="mainContainer">
+    <%- include("partials/resNavBar") %>
+    <% function isOpen(opTime, clTime) {
+        var curHr = Number(Date().substring(16,18));
+        var open = false;
+        if ((opTime>=0&&opTime<=11) && (clTime>=12&&clTime<=23)) { //am-pm
+            if ((curHr > opTime) && (curHr < clTime)) {
+                open = true;
+            }
+        } else if ((opTime>=0&&opTime<=11) && (clTime>=0&&clTime<=11)) { //am-am
+            if ((curHr > opTime) && (curHr < clTime)) {
+                open = true;
+            }
+        } else if ((opTime>=12&&opTime<=23) && (clTime>=12&&clTime<=23)) { //pm-pm
+            if ((curHr > opTime) && (curHr < clTime)) {
+                open = true;
+            }
+        } else if ((opTime>=12&&opTime<=23) && (clTime>=0&&clTime<=11)) { //pm-am
+            if ((curHr > opTime) || (curHr < clTime)) {
+                open = true;
+            }
+        }
+        return open;
+    } %>
+    <div id="resBox">
+        <img src="data:<%=restData.logo.imageType%>;base64,<%=restData.logo.data.toString('base64')%>">
+        <div id="right">
+            <div id="header">
+                <h1><%=restData.name.toUpperCase()%>  
+                    <% 
+                    if (isOpen(restData.opTime, restData.clTime)) { %>
+                        <span style="color:green; font-size: 25px; font-weight: 700;">Open Now</span>
+                    <% } else { %>
+                        <span style="color:red;font-size: 25px; font-weight: 700;">Closed Now</span>
+                    <% } %>
+                </h1>
+                <% 
+                    var formattedNumber='';
+                    if (restData.number[0]=='0' && restData.number[1]=='2') {
+                        const p1 = restData.number.substring(0,2);
+                        const p2 = restData.number.substring(2,5);
+                        const p3 = restData.number.substring(5,9);
+                        formattedNumber = p1+'-'+p2+'-'+p3;
+                    } else {
+                        const p1 = restData.number.substring(0,4);
+                        const p2 = restData.number.substring(4,7);
+                        const p3 = restData.number.substring(7,10);
+                        formattedNumber = p1+'-'+p2+'-'+p3;
+                    }
+                %>
+                <h2><%=formattedNumber%></h2>
+            </div>
+            <h3>About</h3>
+            <p>
+                <%=restData.about%>
+            </p>
+            <h3>Branches</h3>
+            <p>
+                <% for (var i=0; i<restData.cities.length; i++) { %>
+                        <strong><%=restData.cities[i]%> Branch:</strong> <%=restData.branches[i]%>
+                        <br>
+                <%}%>
+            </p>
+
+            <h3>Work Hours</h3>
+            <p>
+                <% function convert12(num) {
+                    var hr12 = "";
+                    if (num>=1&&num<=9) {
+                        hr12 = num+"  AM";
+                    } else if (num>=10&&num<=11) {
+                        hr12 = num+" AM";
+                    } else if (num>=13&&num<=23) {
+                        hr12 = (num-12) + " PM";
+                    } else if (num==0) {
+                        hr12 = "12 AM";
+                    } else if (num==12) {
+                        hr12 = "12 PM";
+                    }
+                    return hr12;
+                } %>
+                <strong>From:</strong> <%=convert12(restData.opTime)%>
+                <br>
+                <strong>To:</strong> <%=convert12(restData.clTime)%>
+            </p>
+
+            <h3>Menu</h3>
+            <div id="menu">
+                <% for (var i=0; i<restData.menu.length; i++) { %>
+                    <img src="data:<%=restData.menu[i].imageType%>;base64,<%=restData.menu[i].data.toString('base64')%>">
+                <% } %>
+            </div>
+
+            <h3>Reviews</h3>
+            <div class="reviews-container">
+                <div class="review-div">
+                    <div class="review-stars" >
+                        <i class="fas fa-star a-st"></i>
+                        <i class="fas fa-star a-st"></i>
+                        <i class="fas fa-star a-st"></i>
+                        <i class="far fa-star a-st"></i>
+                        <i class="far fa-star a-st"></i>
+                    </div>
+                    <form action="/review" method="POST">
+                        <input id="stars" name="stars" value="3" style="display:none">
+                        <input name="restId" style="display: none" value="<%=restData._id%>">
+                        <input type="text" placeholder="Name" name="revName" id="revName" required>
+                        <textarea name="revBody" placeholder="Review" id="revBody" cols="30" rows="10" required></textarea>
+                        <input type="submit">
+                    </form>
+                </div>
+                <% var reviewsArr =  [];%>
+                <% for (var i=0; i<restData.reviews.length; i++) {%>
+                    <div class="review-div r-rev">
+                        <div class="review-stars" data-starCount="<%=restData.reviews[i].stars%>">
+                            <i class="fas fa-star r-st"></i>
+                            <i class="fas fa-star r-st"></i>
+                            <i class="fas fa-star r-st"></i>
+                            <i class="far fa-star r-st"></i>
+                            <i class="far fa-star r-st"></i>
+                        </div>
+                        <h1><%=restData.reviews[i].name%></h1>
+                        <p>
+                            <%=restData.reviews[i].review%>
+                        </p>
+                        <label><%=restData.reviews[i].date%></label>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/dropDown.js"></script>
+<script type="text/javascript" src="/resNavBar.js"></script>
+<script type="text/javascript" src="/colorStars.js"></script>
+<script>
+    var aStars = document.getElementsByClassName('a-st');
+    var starsOut = document.getElementById('stars');
+
+    aStars[0].addEventListener('mouseover', () => colorStars(0, aStars, 'a'));
+    aStars[1].addEventListener('mouseover', () => colorStars(1, aStars, 'a'));
+    aStars[2].addEventListener('mouseover', () => colorStars(2, aStars, 'a'));
+    aStars[3].addEventListener('mouseover', () => colorStars(3, aStars, 'a'));
+    aStars[4].addEventListener('mouseover', () => colorStars(4, aStars, 'a'));
+
+    var rRevs = document.getElementsByClassName('r-rev');
+    for (var i=0; i<rRevs.length; i++) {
+        var starCount = rRevs[i].firstElementChild.getAttribute('data-starCount');
+        colorStars(Number(starCount), rRevs[i].firstElementChild.children, 'r');
+    }
+
+    var dBg = document.getElementsByClassName('display-img-bg')[0];
+    var imgs = document.querySelectorAll('#menu img');
+    for (var i=0; i<imgs.length; i++) {
+        imgs[i].addEventListener('click',function() {
+            dBg.classList.remove('d-none');
+            setTimeout(function() { 
+                dBg.style.opacity=1;
+            }, 1);
+            document.getElementById('displayImg').setAttribute('src', this.getAttribute('src'));
+        });
+    }
+    dBg.addEventListener('click', function() {
+        this.style.opacity=0;
+        setTimeout(function() { 
+            dBg.classList.add('d-none');
+        }, 300);
+    });
+</script>
+<%- include("partials/footer") %>

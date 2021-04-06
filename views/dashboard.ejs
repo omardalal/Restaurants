@@ -1,0 +1,38 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" type="text/css" href="/dashboard.css">
+<link rel="stylesheet" type="text/css" href="/public.css">
+<link rel="stylesheet" type="text/css" href="/navBar.css">
+<div id="mainContainer">
+    <%- include("partials/dashNavBar") %>
+    <div id="resultsContainer">
+        <% if (rests.length>0) { 
+            for (var i=0; i<rests.length; i++) { %>
+            <div id="resultCard" data-aos="fade-up">
+                <img src="data:<%=rests[i].logo.imageType%>;base64,<%=rests[i].logo.data.toString('base64')%>">
+                <h1><%=rests[i].name.toUpperCase()%></h1>
+                <p>
+                    <%=rests[i].about.substring(0,150)+"..."%>
+                </p>
+                <div id="resultFooter">
+                    <a href="/dashboard/<%=rests[i]._id%>/edit">Edit</a>
+                    <a href="/dashboard/<%=rests[i]._id%>/delete">Delete</a>
+                </div>
+            </div>
+            <%  }
+        } else { %>
+            <div id="resultCard">
+                 <img src="frown.png" style="width: 200px;">
+                <p style="font-size: 25px; font-weight: 700; color: #444251;">
+                    No Restaurants Found
+                </p>
+            </div>
+        <%}%>
+    </div>
+</div>
+<script type="text/javascript">
+    var logOut = document.getElementById("out");
+    logOut.addEventListener("click", function() {
+        location.href = '/logOut';
+    });
+</script>
+<%- include("partials/footer") %>

@@ -1,0 +1,19 @@
+#resultFooter h2 {
+    font-size: 24px;
+}
+#resultFooter a {
+    text-align: center;
+    background-color: #444251;
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 18.5px;
+    box-shadow: rgba(0,0,0,0.16) 0 0 22px;
+    width: 95px;
+    padding: 12px;
+    transition: 0.3s;
+}
+#resultFooter a:hover {
+    background-color: white;
+    color: #444251;
+}
